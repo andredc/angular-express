@@ -1,0 +1,25 @@
+<form #AddRuoloForm="ngForm">
+  <mat-form-field>
+    <mat-select placeholder="Dipendenti" [(ngModel)]="selectedIdDipendente" name="food">
+      <mat-option *ngFor="let dipendente of dipendenti" [value]="dipendente.ID">
+        {{dipendente.nome}} {{dipendente.cognome}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-select placeholder="Teams" [(ngModel)]="selectedIdTeam" name="food">
+      <mat-option *ngFor="let team of teams" [value]="team.ID">
+        {{team.nome}} {{team.descrizione}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <div>
+    <mat-form-field>
+      <input matInput placeholder="Ruolo" type="text" id="txtRuolo" class="form-control" required [(ngModel)]="ruolo.nome_ruolo"
+        name="descrizione">
+    </mat-form-field>
+  </div>
+  <div>
+    <button type="submit" class="btn btn-success" [disabled]="!AddRuoloForm.valid" (click)="addRuolo()">Invia</button>
+  </div>
+</form>

@@ -1,0 +1,18 @@
+<mat-list>
+  <mat-list-item *ngFor="let tag of tags">
+    <mat-form-field>
+      <input matInput type="text" id="txtRuolo" class="form-control" required [(ngModel)]="tag.nome" disabled name="tag">
+    </mat-form-field>
+    <button *ngIf=myPage mat-icon-button color="lightblue" (click)="deleteTagDipendente(tag.ID)">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </mat-list-item>
+  <form #AddTagForm="ngForm">
+    <mat-form-field>
+      <input matInput placeholder="Aggiungi Tag" type="text" id="txtTag" class="form-control" required [(ngModel)]="tag.nome" name="tag">
+    </mat-form-field>
+    <div>
+      <button type="submit" class="btn btn-success" [disabled]="!AddTagForm.valid" (click)="addTagDipendente()">Aggiungi</button>
+    </div>
+  </form>
+ 

@@ -1,0 +1,18 @@
+<div>
+  <form #TeamForm="ngForm">
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="Nome" type="text" id="txtNome" class="form-control" required [(ngModel)]="team.nome" name="nome">
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="Descrizione" type="text" id="txtDescrizione" class="form-control" required [(ngModel)]="team.descrizione"
+          name="descrizione">
+      </mat-form-field>
+    </div>
+    <div>
+      <button type="submit" class="btn btn-success" [disabled]="!TeamForm.valid" (click)="addTeam()">Invia</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,42 @@
+<mat-form-field>
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter" [value]='query'>
+</mat-form-field>
+<div class="example-container mat-elevation-z8">
+  <mat-table [dataSource]="dataSource" matSort>
+    <ng-container matColumnDef="ID">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.ID}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="nome">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Nome </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.nome}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="cognome">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Cognome </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.cognome}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="email">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Email </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.email}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="Details">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Details </mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <button mat-icon-button color="lightblue">
+          <mat-icon routerLink="/dipendenti/{{row.ID}}">details</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;">
+    </mat-row>
+  </mat-table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</div>
+<mat-list>
+  <h3 mat-subheader>Tags</h3>
+  <mat-list>
+    <mat-list-item *ngFor="let tag of allTags">
+      <button type="submit" class="btn btn-success" (click)="changeQuery(tag)">#{{tag}}</button>
+    </mat-list-item>
+    <mat-list>

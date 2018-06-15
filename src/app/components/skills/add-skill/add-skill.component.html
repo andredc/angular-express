@@ -1,0 +1,21 @@
+<mat-list>
+  <mat-list-item *ngFor="let skill of skills">
+    <mat-form-field>
+      <input matInput type="text" id="txtNome" class="form-control" required value="{{skill.nome}}" disabled name="nome">
+    </mat-form-field>
+    <button mat-icon-button color="lightblue" (click)="deleteSkill(skill.ID)">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </mat-list-item>
+  <form #AddSkillForm="ngForm">
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="Nome Skill" type="text" id="txtNomeSkill" class="form-control" required [(ngModel)]="nomeSkill"
+          name="nomeskill">
+      </mat-form-field>
+    </div>
+    <div>
+      <button type="submit" class="btn btn-success" [disabled]="!AddSkillForm.valid" (click)="addSkill()">Invia</button>
+    </div>
+  </form>
+  <mat-list>

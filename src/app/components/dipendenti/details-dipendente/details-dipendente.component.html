@@ -1,0 +1,45 @@
+<div>
+  <form #detailsForm="ngForm">
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="ID" type="text" id="txtID" class="form-control" disabled required [(ngModel)]="dipendente.ID"
+          name="ID">
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="Username" type="text" id="txtUsername" class="form-control" disabled required [(ngModel)]="dipendente.username"
+          name="username">
+      </mat-form-field>
+    </div>
+    <div *ngIf=myPage>
+      <mat-form-field>
+        <input matInput type="password" placeholder="Password" id="txtPassword" minlength="6" [disabled]=!myPage class="form-control" required [(ngModel)]="dipendente.password"
+          name="password">
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="Nome" type="text" id="txtNomee" [disabled]=!myPage class="form-control" required [(ngModel)]="dipendente.nome"
+          name="nome">
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="Cognome" type="text" id="txtCognome" [disabled]=!myPage class="form-control" required [(ngModel)]="dipendente.cognome"
+          name="cognome">
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="Email" type="text" id="txtEmail" class="form-control" [disabled]=!myPage required [pattern]="emailPattern"
+          [(ngModel)]="dipendente.email" name="email" #offEmail="ngModel">
+      </mat-form-field>
+    </div>
+
+
+    <div *ngIf=myPage>
+      <button type="submit" class="btn btn-success" [disabled]="!detailsForm.valid" (click)="updateDipendente()">Invia</button>
+    </div>
+  </form>
+</div>

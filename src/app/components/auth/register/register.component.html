@@ -1,0 +1,39 @@
+<div>
+  <div>
+    <h2>Form Registrazione Utente</h2>
+  </div>
+  <form #RegisterForm="ngForm">
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="Username" type="text" id="txtUsername" class="form-control" required [(ngModel)]="utente.username"
+          name="username">
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="Password" type="text" id="txtPassword" class="form-control" required [(ngModel)]="utente.password"
+          name="password">
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="Nome" type="text" id="txtNomee" class="form-control" required [(ngModel)]="utente.nome" name="nome">
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="Cognome" type="text" id="txtCognome" class="form-control" required [(ngModel)]="utente.cognome"
+          name="cognome">
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="Email" type="text" id="txtEmail" class="form-control" required [(ngModel)]="utente.email" [pattern]="emailPattern"
+          name="email">
+      </mat-form-field>
+    </div>
+    <div>
+      <button type="submit" class="btn btn-success" [disabled]="!RegisterForm.valid" (click)="registraUtente()">Invia</button>
+    </div>
+  </form>
+</div>

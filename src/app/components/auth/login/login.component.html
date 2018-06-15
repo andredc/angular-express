@@ -1,0 +1,20 @@
+<div>
+  <h2>Login Utente</h2>
+</div>
+<form #LoginForm="ngForm">
+  <div>
+    <mat-form-field>
+      <input matInput placeholder="Username" type="text" id="txtUsername" class="form-control" required [(ngModel)]="utente.username"
+        name="username">
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field>
+      <input matInput placeholder="Password" type="password" id="txtPassword" class="form-control" required [(ngModel)]="utente.password"
+        name="password">
+    </mat-form-field>
+  </div>
+  <div>
+    <button type="submit" class="btn btn-success" [disabled]="!LoginForm.valid" (click)="loginUtente()">Invia</button>
+  </div>
+</form>

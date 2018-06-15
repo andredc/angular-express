@@ -1,0 +1,19 @@
+<mat-list>
+  <mat-list-item *ngFor="let skill of skills">
+    <mat-form-field>
+      <input matInput placeholder="Nome" type="text" id="txtNome" class="form-control" required [(ngModel)]="skill.nome"
+       disabled name="nome">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Descrizione" type="text" id="txtDescrizione" class="form-control" required [(ngModel)]="skill.descrizione"
+        disabled name="descrizione">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Scadenza" type="text" id="txtScadenza" class="form-control" required [(ngModel)]="skill.scadenza"
+        disabled name="scadenza">
+    </mat-form-field>
+  </mat-list-item>
+  <span *ngIf=myPage>
+    <button mat-button routerLink="/dipendenti/{{idDipendente}}/addskill"> Add Skills </button>
+  </span>
+  <mat-list>

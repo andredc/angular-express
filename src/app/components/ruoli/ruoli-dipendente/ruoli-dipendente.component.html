@@ -1,0 +1,12 @@
+<mat-list>
+  <mat-list-item *ngFor="let ruolo of ruoli">
+    <mat-form-field>
+      <input matInput placeholder="Ruolo" type="text" id="txtRuolo" class="form-control" required [(ngModel)]="ruolo.descrizione"
+        disabled name="ruolo">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Team" type="text" id="txtTeam" class="form-control" required [(ngModel)]="ruolo.nome" disabled
+        name="team">
+    </mat-form-field>
+  </mat-list-item>
+  <mat-list>

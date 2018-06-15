@@ -1,0 +1,13 @@
+<mat-toolbar color="primary" flex>
+    <div *ngIf="isLogged()">
+        <button mat-button routerLink="/login">Login</button>
+        <button mat-button routerLink="/registration">Registrazione</button>
+    </div>
+    <div *ngIf="!isLogged()">
+        <button mat-button routerLink="/dipendenti">Dipendenti</button>
+        <button mat-button routerLink="/teams">Teams</button>
+        <button mat-button *ngIf="!isAdmin()" routerLink="/admin"> Admin </button>
+        <button mat-button routerLink="/skillsmatrix"> Skills Matrix </button>
+        <button mat-button routerLink="/login" (click)='logout()'>Logout</button>
+    </div>
+</mat-toolbar>
